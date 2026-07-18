@@ -12,7 +12,7 @@
       background: #f4f1ea; /* warm off-white */
       color: #222;
       font-family: 'Inter', sans-serif;
-      max-width: 1000px;
+      max-width: 1200px;
       margin: auto;
       padding: 0 20px;
     }
@@ -53,8 +53,10 @@
 
     .sidebar {
       background: transparent;
+      width: 200px;
+      flex-shrink: 0;
       font-family: Inter, system-ui, sans-serif;
-      padding: 30px 20px;
+      padding: 50px 20px;
       color: #cfd6dd;
       width: 220px;
       height: 100vh;
@@ -64,7 +66,7 @@
     }
 
     .main {
-      padding: 80px 100px;
+      padding: 40px 50px;
     }
 
     .main article {
@@ -107,15 +109,17 @@
     <div class="sidebar">
     <div class="site-title">stones in drift</div>
 
-    <a href="entries/entry1.html" class="entry-link" onclick="handleClick(event, this.href)">
-      <div class="title">slow shape</div>
-      <div class="date">jul 18</div>
+    <a href="entries/about.html" class="entry-link" onclick="handleClick(event, this.href)">
+      <div class="title">before the first 19x19</div>
+      <div class="date">feb 10, 2026</div>
     </a>
 
     <a href="entries/entry1.html" class="entry-link" onclick="handleClick(event, this.href)">
-      <div class="title">early attachment</div>
-      <div class="date">jul 16</div>
+      <div class="title">template</div>
+      <div class="date">jul 18</div>
     </a>
+
+
 
     </div>
 
