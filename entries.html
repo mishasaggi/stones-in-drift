@@ -1,30 +1,25 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
 
   <meta charset="UTF-8" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Entries — Stones in Drift</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     body {
-      background-color: #1f2933; /* same slate vibe */
-      color: #e6e6e6;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      max-width: 720px;
-      margin: 80px auto;
+      background: #f4f1ea; /* warm off-white */
+      color: #222;
+      font-family: 'Inter', sans-serif;
+      max-width: 1000px;
+      margin: auto;
       padding: 0 20px;
     }
 
     h1 {
       font-size: 28px;
       font-weight: 600;
-      opacity: 0.6;
       margin-bottom: 40px;
     }
 
@@ -37,51 +32,118 @@
     p {
       line-height: 1.7;
       margin-bottom: 22px;
-      color: #d1d5db;
       font-weight: 300;
     }
 
     strong {
-      color: #f3f4f6;
+      font-weight: 800;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    .site-title {
+      padding-bottom: 50px;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      color: #888;
+    }
+
+    .sidebar {
+      background: transparent;
+      font-family: Inter, system-ui, sans-serif;
+      padding: 30px 20px;
+      color: #cfd6dd;
+      width: 220px;
+      height: 100vh;
+      overflow-y: auto;
+      border-right: 1px solid #eee;
+      border-radius: 2px;
+    }
+
+    .main {
+      padding: 80px 100px;
+    }
+
+    .main article {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+      margin-left: 20px;
+    }
+
+    .entry-link {
+      display: block;
+      margin-bottom: 20px;
+      text-decoration: none;
+      color: #111;
+    }
+
+    .entry-link .title {
+      font-size: 14px;
+    }
+
+    .entry-link .date {
+      font-size: 12px;
+      color: #777;
+    }
+
+    a {
+      color: #2a5db0;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
   </style>
-
-
 
 </head>
 
 <body>
-  <h1>Entries</h1>
-  <h2>Before the first 19x19</h2>
-  <p>
-    There will always be a voice that says "Why didn't I start 10 years ago or 20 years ago??!" 
-    Some grief about lost time and delayed paths will always remain.
-  </p>
 
-  <p>
-    The truth is not that I didn't try but that I tried and failed repeatedly, just not in ways that leads to progressive learning.
-  </p>
+  <div class="container">
+    <div class="sidebar">
+    <div class="site-title">stones in drift</div>
 
-  <p>
-    The failures and barriers were all the same across various domains I hold this grief for... art, aerials, climbing, and go.
-  </p>
+    <a href="entries/entry1.html" class="entry-link" onclick="handleClick(event, this.href)">
+      <div class="title">slow shape</div>
+      <div class="date">jul 18</div>
+    </a>
 
-  <p>
-    If I'm being more compassionate with myself then I would say in those years I was becoming the kind of person who would eventually
-    play go and be eager to see the mirror that it is.
-  </p>
+    <a href="entries/entry1.html" class="entry-link" onclick="handleClick(event, this.href)">
+      <div class="title">early attachment</div>
+      <div class="date">jul 16</div>
+    </a>
 
-  <p>
-    <strong>2007</strong> - I first learned about the game and its origins through an IEEE computing article. 
-    IEEE announced it as the next big challenge for the computer sci world. <br/>
-    <strong>2011</strong> - I bought my first go board and procrastinated actually learning.<br/>
-    <strong>2015</strong> - I met three go players in a software immersive program I was in.
-    One gave me my first lesson (JR). Another (KB) became one of my closest friends continued to teach me the game. <br/>
-    This first year of playing I watched the original Hikaru no Go, played a 100 games on 9x9, 10x10, and a few on 13x13 <br/>
-    <strong>2021-2025</strong> - Zero games. Thinking of go and just feeling "Not now". <br/>
-    <strong>2026</strong> - I watched the chinese live action adaptation of Hikaru no Go and also found myself in the first period of stability (health)
-    in years and had enough capacity to so I began again. <br/>
-  </p>
+    </div>
 
+    <div class="main" id="content">
+      <!-- blog content loads here -->
+    </div>
+
+  </div>
+
+  <script>
+    function loadEntry(url) {
+      event.preventDefault();
+      fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById("content").innerHTML = html;
+        });
+    }
+
+    function handleClick(event, url) {
+      event.preventDefault();
+      loadEntry(url);
+    }
+
+    // load first entry automatically
+    window.onload = function () {
+      loadEntry("entries/about.html");
+    };
+  </script>
 </body>
 </html>
